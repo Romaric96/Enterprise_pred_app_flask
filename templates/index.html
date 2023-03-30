@@ -1,0 +1,152 @@
+<!-- document HTML -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <title>Application impôts</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <!-- bandeau -->
+      <!-- Bootstrap Jumbotron -->
+      <div class="jumbotron jumbotron-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <img
+              src="{{ url_for('static', filename='img/header.png') }}"
+              alt="logo BEAC"
+            />
+          </div>
+          <div class="col-md-6">
+            <h4 class="text-primary">INSTITUT SAINT JEAN</h4>
+            <span class="text-dark">Cours de finance  </span> <br>
+            <span class="text-dark">Modèle sur l'analyse des risques des entreprises </span>
+          </div>
+        </div>
+      </div>
+      <!-- ligne à deux colonnes -->
+      <div class="row container">
+        <div class="col-md-9 container">
+          <!-- formulaire HTML - on poste ses valeurs avec l'action [/] -->
+          <form method="post" action="/">
+            <!-- titre -->
+            <div class="alert alert-primary" role="alert">
+              <b>Veuillez entrer les indicateurs</b>
+            </div>
+
+            <!-- formulaire Bootstrap -->
+            <fieldset class="form-group">
+              <!-- 1ère ligne -->
+              <div class="form-group row">
+                <!-- libellé -->
+                <label for="depots_du_gouvernement" class="col-md-3 col-form-label"
+                  >dépôt gouvernement</label
+                >
+                <div class="col-md-4">
+                  <!-- zone de saisie texte -->
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="depots_du_gouvernement"
+                    name="depots_du_gouvernement"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <!-- libellé -->
+                <label for="reserves" class="col-md-3 col-form-label"
+                  >réserves</label
+                >
+                <div class="col-md-4">
+                  <!-- zone de saisie texte -->
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="reserves"
+                    name="reserves"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <!-- libellé -->
+                <label for="engagementsexterieursamoyensetlongstermes" class="col-md-3 col-form-label"
+                  >engagements exterieurs</label
+                >
+                <div class="col-md-4">
+                  <!-- zone de saisie texte -->
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="engagementsexterieursamoyensetlongstermes"
+                    name="engagementsexterieursamoyensetlongstermes"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <!-- libellé -->
+                <label for="avoirs_exterieurs" class="col-md-3 col-form-label"
+                  >avoirs extérieurs</label
+                >
+                <div class="col-md-4">
+                  <!-- zone de saisie texte -->
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="avoirs_exterieurs"
+                    name="avoirs_exterieurs"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <!-- libellé -->
+                <label for="depots_a_vue" class="col-md-3 col-form-label"
+                  >dépôt à vue </label
+                >
+                <div class="col-md-4">
+                  <!-- zone de saisie texte -->
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="depots_a_vue"
+                    name="depots_a_vue"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- bouton de type [submit] sur une 3ième ligne -->
+              <div class="form-group row">
+                <div class="col-md-2">
+                  <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <ul class="list-group list-group-flush ">
+            <li class="list-group-item active "> <b> Score : {{ note }}</b></li>
+            <li class="list-group-item">Dépôt gouvernement : <b> {{ results[0] }} </b></li>
+            <li class="list-group-item">Réserves : <br><b> {{ results[1] }} </b></li>
+            <li class="list-group-item">Engagements extérieurs: <b> {{ results[2] }} </b></li>
+            <li class="list-group-item">Avoirs extérieurs : <b> {{ results[3] }} </b></li>
+            <li class="list-group-item">Dépôt à vue : <br><b> {{ results[4] }} </b></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
